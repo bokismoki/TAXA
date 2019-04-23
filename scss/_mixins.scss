@@ -1,0 +1,67 @@
+@mixin backgroundProperties {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin topText {
+  text-align: center;
+  position: relative;
+
+  p {
+    text-transform: uppercase;
+    display: inline;
+    color: transparent;
+    background-image: linear-gradient(to right, $vividPink, $brightViolet);
+    background-clip: text;
+    letter-spacing: 1px;
+  }
+
+  h1 {
+    color: #000;
+    font-family: serif;
+    font-size: 50px;
+    margin: 30px 0;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    width: 90px;
+    height: 5px;
+    background-color: darken($veryLightGray, 10%);
+    top: 120%;
+    left: 45%;
+  }
+}
+
+@mixin readMoreBtn ($alignSelf , $marginTop) {
+  display: inline-block;
+  align-self: $alignSelf;
+  margin-top: $marginTop;
+  color: $black;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: 0.5s;
+
+  &:hover {
+    color: transparent;
+    background-image: linear-gradient(to right, $vividPink, $brightViolet);
+    background-clip: text;
+  }
+}
+
+@mixin unordList ($spacing) {
+  display: flex;
+  list-style-type: none;
+  justify-content: $spacing;
+}

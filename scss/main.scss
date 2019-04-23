@@ -1,0 +1,457 @@
+@import "variables";
+@import "mixins";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  line-height: 24px;
+  font-size: 14px;
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  color: #777;
+}
+
+.container {
+  width: 70%;
+  margin: 0 auto;
+}
+
+/* HEADER */
+.headerBackground {
+  background-image: url("../img/heroBackground.jpg");
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  @include backgroundProperties;
+
+  .container {
+    height: 100%;
+    position: relative;
+  }
+
+  header {
+    padding: 1.5em;
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .logo {
+        cursor: pointer;
+      }
+
+      ul {
+        list-style-type: none;
+
+        li {
+          display: inline-block;
+
+          a {
+            text-decoration: none;
+            margin: 0 2em;
+            text-transform: uppercase;
+            color: $white;
+            font-size: 0.9em;
+            font-weight: bold;
+            transition: 0.5s;
+
+            &:hover {
+              color: $vividPink;
+            }
+          }
+        }
+      }
+
+      .bookTripBtn {
+        background-color: transparent;
+        border: 1px solid $white;
+        color: $white;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 0.8em 2em;
+        cursor: pointer;
+        transition: 0.5s;
+
+        &:hover {
+          color: $vividPink;
+          border: 1px solid $vividPink;
+        }
+      }
+    }
+  }
+
+  .middleTitles {
+    color: $white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    p {
+      text-transform: uppercase;
+      margin-bottom: 5em;
+    }
+
+    h1 {
+      font-size: 120px;
+      font-family: serif;
+    }
+  }
+}
+
+/* POPULAR SERVICES */
+.popularServices {
+  padding: 8em 0;
+  @include flexColumn;
+
+  .titles {
+    @include topText;
+  }
+}
+
+.services {
+  padding: 6em 0 0;
+
+  ul {
+    @include unordList(space-between);
+
+    li {
+      min-height: 500px;
+      max-width: 350px;
+      @include flexColumn;
+      justify-content: space-between;
+      border: 1px solid $veryLightGray;
+      padding: 3em 1em 5em;
+      text-align: center;
+      transition: box-shadow 0.5s;
+
+      h2 {
+        padding: 0 2em;
+        color: $black;
+        font-family: serif;
+        font-size: 1.5em;
+      }
+
+      p {
+        font-weight: 100;
+      }
+
+      .readMoreBtn {
+        @include readMoreBtn(center, -20px);
+      }
+
+      .serviceImg {
+        align-self: center;
+      }
+
+      &:hover {
+        box-shadow: 0px 0px 30px 0px rgba(79, 79, 79, 0.2);
+      }
+    }
+  }
+}
+
+/* MAP */
+.mapBackground {
+  background-image: url("../img/background.jpg");
+  @include backgroundProperties;
+  background-size: auto;
+
+  .container {
+    display: flex;
+  }
+
+  .leftPart {
+    align-self: center;
+    color: $black;
+    padding: 0 150px 0 0;
+
+    h1 {
+      font-family: serif;
+      font-size: 3.5em;
+      line-height: 1;
+      margin: 20px 0;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    .bookTripDarkBtn {
+      background-color: $black;
+      color: $white;
+      border: 1px solid $black;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 1px;
+      padding: 1.2em 2.5em;
+      cursor: pointer;
+      transition: 0.5s;
+
+      &:hover {
+        background-color: transparent;
+        color: $black;
+      }
+    }
+  }
+}
+
+/* FAMOUS TRIPS */
+.famousTrips {
+  padding: 8em 0;
+  @include flexColumn;
+
+  .titles {
+    @include topText;
+  }
+}
+
+.packages {
+  padding: 6em 0 0;
+
+  ul {
+    @include unordList(space-between);
+
+    li {
+      min-height: 500px;
+      max-width: 350px;
+      @include flexColumn;
+      justify-content: space-between;
+      border: 1px solid $veryLightGray;
+      padding: 3em 1em 5em;
+      text-align: left;
+      transition: box-shadow 0.5s;
+      position: relative;
+
+      .block {
+        position: absolute;
+        background: linear-gradient(to right, $vividPink 0%, $brightViolet 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$vividPink', endColorstr='$brightViolet',GradientType=1 );
+        color: $white;
+        text-align: center;
+        padding: 1.2em 1em;
+        top: 0%;
+        left: 0%;
+        z-index: 1;
+        transition: 0.5s;
+
+        p:first-child {
+          font-size: 32px;
+          font-family: serif;
+          font-weight: bold;
+        }
+
+        p:nth-child(2) {
+          font-weight: 100;
+          font-size: 0.9em;
+        }
+      }
+
+      h2 {
+        padding: 0 2em 0 0;
+        color: $black;
+        font-family: serif;
+        font-size: 1.5em;
+        margin-top: 20px;
+      }
+
+      p {
+        font-weight: 100;
+      }
+
+      .readMoreBtn {
+        @include readMoreBtn(flex-start, 50px);
+      }
+
+      .packagesImg {
+        align-self: center;
+        overflow: hidden;
+        transition: 0.5s;
+      }
+
+      &:hover {
+        box-shadow: 0px 0px 30px 0px rgba(79, 79, 79, 0.2);
+      }
+
+      &:hover .block {
+        background: linear-gradient(to right, #ffd168 0%, #a562f7 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd168', endColorstr='#a562f7',GradientType=1 );
+      }
+
+      &:hover .packagesImg {
+        transform: scale(1.09);
+      }
+    }
+  }
+}
+
+/* SUBSCRIBE */
+.subscribe {
+  background-image: url(../img/background2.jpg);
+  @include backgroundProperties;
+  margin: 0 0 100px;
+  padding: 100px 0;
+
+  .container {
+    display: flex;
+    max-width: 1140px;
+  }
+
+  .rightPart {
+    color: $white;
+    margin: 0 0 0 150px;
+    @include flexColumn;
+    gap: 50px;
+    align-self: center;
+
+    h1 {
+      font-family: serif;
+      font-size: 4em;
+      line-height: 1;
+    }
+
+    p {
+      font-size: 1.1em;
+    }
+
+    .subscribeInput {
+      background-color: #c251da;
+      color: $white;
+      font-weight: bold;
+      border: none;
+      padding: 25px 0 25px 20px;
+    }
+
+    .subscribeBtn {
+      border: 1px solid $brightViolet;
+      padding: 1.1em 2.5em;
+      position: relative;
+      left: -10%;
+      cursor: pointer;
+    }
+  }
+}
+
+/* TEAM MEMBERS */
+.teamMembers {
+  @include flexColumn;
+  margin: 0 0 100px;
+
+  .titles {
+    @include topText;
+  }
+
+  .members {
+    ul {
+      @include unordList(space-evenly);
+      margin: 100px 0 10px;
+
+      li {
+        padding: 20px;
+        border: 1px solid $veryLightGray;
+
+        &:hover {
+          box-shadow: 0px 0px 30px 0px rgba(79, 79, 79, 0.2);
+        }
+
+        &:hover .person {
+          display: block;
+        }
+      }
+    }
+
+    .personInfo {
+      position: relative;
+
+      .person {
+        position: absolute;
+        background-color: $white;
+        color: $black;
+        padding: 20px;
+        bottom: 0;
+        display: none;
+      }
+    }
+  }
+}
+
+/* FOOTER */
+.footer {
+  background-color: $almostBlackBlue;
+  color: $white;
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    list-style-type: none;
+
+    li {
+      min-height: 300px;
+      margin-top: 50px;
+      padding: 0 20px;
+
+      h3 {
+        margin-bottom: 15px;
+        font-size: 23px;
+        font-weight: 100;
+      }
+
+      p {
+        color: $lightGray;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+.emailInput {
+  padding: 1em 0 1em 1em;
+  border-radius: 20px;
+  border: none;
+  margin-top: 20px;
+}
+
+/* FOOT */
+.foot {
+  background-color: $almostBlackBlue;
+  color: $lightGray;
+  padding: 25px 0;
+
+  p {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  span {
+    color: #f84b67;
+  }
+}
+
+.footContent {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    background-color: $lightGray;
+    width: 100%;
+    height: 1px;
+    top: -100%;
+  }
+
+  img {
+    cursor: pointer;
+    margin-left: 30px;
+  }
+}
