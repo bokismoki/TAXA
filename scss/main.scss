@@ -15,6 +15,8 @@ body {
   font-family: Roboto, sans-serif;
   font-weight: 300;
   color: #777;
+  min-width: 320px;
+  overflow-x: hidden;
 }
 
 .container {
@@ -37,6 +39,61 @@ body {
 
   header {
     padding: 1.5em;
+
+    .hamburger {
+      background-color: transparent;
+      width: 50px;
+      height: 50px;
+      position: relative;
+      cursor: pointer;
+      display: none;
+
+      .line1 {
+        background-color: $white;
+        width: 30px;
+        height: 3px;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        top: (50px / 7) * 2;
+      }
+
+      .line2 {
+        background-color: $white;
+        width: 30px;
+        height: 3px;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        top: (50px / 7) * 3.5;
+      }
+
+      .line3 {
+        background-color: $white;
+        width: 30px;
+        height: 3px;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        top: (50px / 7) * 5;
+      }
+
+      .line1X {
+        transform: rotate(45deg);
+        top: 50%;
+        left: 25%;
+      }
+
+      .line2X {
+        display: none;
+      }
+
+      .line3X {
+        transform: rotate(-45deg);
+        top: 50%;
+        left: 25%;
+      }
+    }
 
     nav {
       display: flex;
@@ -106,6 +163,30 @@ body {
       font-family: serif;
     }
   }
+
+  /* SHOW NAV */
+  .specialNav {
+    display: block;
+    ul {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      background-color: $veryLightGray;
+      right: 30px;
+      top: 80px;
+      li {
+        padding: 10px 40px;
+
+        a {
+          color: $black;
+        }
+      }
+    }
+  }
+
+  .showNav {
+    display: none;
+  }
 }
 
 /* POPULAR SERVICES */
@@ -165,6 +246,7 @@ body {
   background-image: url("../img/background.jpg");
   @include backgroundProperties;
   background-size: auto;
+  min-height: 618.5px;
 
   .container {
     display: flex;
@@ -329,11 +411,16 @@ body {
       font-weight: bold;
       border: none;
       padding: 25px 0 25px 20px;
+      max-width: 396px;
+
+      &::placeholder {
+        color: $white;
+      }
     }
 
     .subscribeBtn {
       border: 1px solid $brightViolet;
-      padding: 1.1em 2.5em;
+      padding: 2% 4%;
       position: relative;
       left: -10%;
       cursor: pointer;
@@ -358,6 +445,7 @@ body {
       li {
         padding: 20px;
         border: 1px solid $veryLightGray;
+        transition: box-shadow 0.5s;
 
         &:hover {
           box-shadow: 0px 0px 30px 0px rgba(79, 79, 79, 0.2);
@@ -453,5 +541,275 @@ body {
   img {
     cursor: pointer;
     margin-left: 30px;
+  }
+}
+
+/*  MEDIA QERIES */
+
+/* 1600 */
+@media screen and (max-width: 1600px) {
+  .subscribeInput {
+    width: 100% - 25%;
+  }
+}
+
+/* 1550 */
+@media screen and (max-width: 1550px) {
+  .services ul {
+    flex-direction: column;
+    align-items: center;
+
+    li {
+      max-width: initial;
+      margin: 20px 0;
+      border: 2px solid $lightGray;
+
+      &:hover {
+        box-shadow: 0px 0px 50px 0px rgba(79, 79, 79, 0.4);
+      }
+    }
+  }
+
+  .famousTrips {
+    padding: 3em 0;
+  }
+
+  .packages {
+    padding: 2em 0;
+
+    ul {
+      flex-direction: column;
+      align-items: center;
+
+      li {
+        margin: 20px 0;
+        max-width: initial;
+        text-align: center;
+        border: 2px solid $lightGray;
+
+        &:hover {
+          box-shadow: 0px 0px 50px 0px rgba(79, 79, 79, 0.4);
+        }
+
+        .readMoreBtn {
+          align-self: center;
+        }
+      }
+    }
+  }
+}
+
+/* 1450 */
+@media screen and (max-width: 1450px) {
+  .subscribeInput {
+    display: none;
+  }
+
+  .subscribeBtn {
+    position: initial !important;
+  }
+}
+
+/* 1320 */
+@media screen and (max-width: 1320px) {
+  .footer ul {
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, 300px);
+    text-align: center;
+  }
+}
+
+/* 1193 */
+@media screen and (max-width: 1193px) {
+  .middleTitles h1 {
+    line-height: 1;
+  }
+
+  #unordList {
+    display: none;
+  }
+
+  .hamburger {
+    display: inline-block !important;
+  }
+
+  .bookTripBtn {
+    display: none;
+  }
+
+  .mapBackground .container {
+    min-height: 618.5px;
+
+    .leftPart {
+      padding: 0;
+      min-height: 618.5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 30px;
+    }
+  }
+
+  .mapImg,
+  .subscribe img {
+    display: none;
+  }
+
+  .subscribe .rightPart {
+    text-align: center;
+    margin: 0;
+    color: $black;
+  }
+
+  .members ul {
+    flex-direction: column;
+    align-items: center;
+
+    li {
+      margin: -50px 0 100px;
+      border: 2px solid $lightGray !important;
+
+      &:hover {
+        box-shadow: 0px 0px 50px 0px rgba(79, 79, 79, 0.4) !important;
+      }
+    }
+  }
+}
+
+/* MIN-WIDTH 1193PX */
+@media screen and (min-width: 1193px) {
+  .showNav {
+    display: none;
+  }
+}
+
+/* 1010 */
+@media screen and (max-width: 1010px) {
+  .popularServices {
+    padding: 3em 0;
+
+    .titles h1 {
+      line-height: 1;
+    }
+
+    .titles::after {
+      display: none;
+    }
+
+    .services {
+      padding: 2em 0;
+    }
+  }
+
+  .famousTrips {
+    .titles::after {
+      display: none;
+    }
+  }
+
+  .teamMembers .titles::after {
+    display: none;
+  }
+}
+
+/* 925 */
+@media screen and (max-width: 925px) {
+  .footContent {
+    display: grid;
+    justify-content: center;
+
+    &::before {
+      top: -50%;
+    }
+
+    .icons {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}
+
+/* 825 */
+@media screen and (max-width: 825px) {
+  .teamMembers .titles h1 {
+    line-height: 1;
+    font-size: 3em;
+  }
+}
+
+/* 800 */
+@media screen and (max-width: 800px) {
+  .headerBackground .middleTitles h1 {
+    font-size: 5em;
+  }
+
+  .headerBackground .middleTitles p {
+    display: none;
+  }
+
+  .popularServices .titles h1 {
+    font-size: 3em;
+  }
+
+  .mapBackground .leftPart h1 {
+    font-size: 3em;
+  }
+
+  .famousTrips .titles h1 {
+    font-size: 3em;
+  }
+
+  .subscribe .rightPart h1 {
+    font-size: 3em;
+  }
+
+  .footer {
+    display: none;
+  }
+
+  .foot {
+    padding: 50px 0;
+  }
+
+  .footContent p {
+    font-size: 0.9em;
+  }
+
+  .footContent::before {
+    display: none;
+  }
+
+  .icons {
+    margin: 20px 0 0;
+  }
+}
+
+/* 622 */
+@media screen and (max-width: 622px) {
+  .famousTrips .titles h1 {
+    line-height: 1;
+  }
+}
+
+/* 480 */
+@media screen and (max-width: 480px) {
+  .headerBackground .middleTitles h1 {
+    font-size: 3em;
+    line-height: 1.5;
+  }
+
+  .packages {
+    padding: 0;
+
+    ul {
+      gap: 0px;
+
+      li {
+        transform: scale(0.8);
+        min-height: 400px;
+      }
+    }
   }
 }

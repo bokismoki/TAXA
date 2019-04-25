@@ -65,11 +65,32 @@ subscribeBtn.addEventListener("click", function (e) {
 
 footerInput.addEventListener("keyup", function (e) {
 
+    e.preventDefault();
+
     if (e.keyCode === 13) {
 
-        e.preventDefault();
         footerInput.value = "";
         footerInput.style.backgroundColor = "#fff";
+        scrollTo(9999,9999);
     }
+
+});
+
+// HAMBURGER ICON
+
+const hamburger = document.querySelector(".hamburger");
+const line1 = document.querySelector(".line1");
+const line2 = document.querySelector(".line2");
+const line3 = document.querySelector(".line3");
+const navigation = document.getElementById("unordList");
+const specialNav = document.querySelector(".specialNav");
+
+hamburger.addEventListener("click", function () {
+
+    line1.classList.toggle("line1X");
+    line2.classList.toggle("line2X");
+    line3.classList.toggle("line3X");
+    navigation.classList.toggle("hideNav");
+    specialNav.classList.toggle("showNav");
 
 });
