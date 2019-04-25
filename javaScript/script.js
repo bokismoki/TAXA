@@ -82,7 +82,6 @@ const hamburger = document.querySelector(".hamburger");
 const line1 = document.querySelector(".line1");
 const line2 = document.querySelector(".line2");
 const line3 = document.querySelector(".line3");
-const navigation = document.getElementById("unordList");
 const specialNav = document.querySelector(".specialNav");
 
 hamburger.addEventListener("click", function () {
@@ -90,7 +89,6 @@ hamburger.addEventListener("click", function () {
     line1.classList.toggle("line1X");
     line2.classList.toggle("line2X");
     line3.classList.toggle("line3X");
-    navigation.classList.toggle("hideNav");
     specialNav.classList.toggle("showNav");
 
 });

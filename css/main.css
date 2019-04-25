@@ -760,7 +760,9 @@ body {
 /* MIN-WIDTH 1193PX */
 @media screen and (min-width: 1193px) {
   .showNav {
-    display: none; } }
+    display: none; }
+  .specialNav ul {
+    display: none !important; } }
 
 /* 1010 */
 @media screen and (max-width: 1010px) {
