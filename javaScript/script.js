@@ -71,7 +71,7 @@ footerInput.addEventListener("keyup", function (e) {
 
         footerInput.value = "";
         footerInput.style.backgroundColor = "#fff";
-        scrollTo(9999,9999);
+        scrollTo(9999, 9999);
     }
 
 });
